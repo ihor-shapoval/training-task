@@ -1,0 +1,23 @@
+@import '../../styles/mixins/mixins';
+.form {
+  @include toCenter;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 500px;
+  gap: 10px;
+
+  &__input {
+    font-size: 16px;
+    height: 44px;
+    width: 370px;
+  }
+
+  &__submit {
+    height: 44px;
+    width: 378px;
+    background: #BDBDBD;
+    border: 1px solid #a19e9e;
+    border-radius: 4px;
+  }
+}

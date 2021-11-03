@@ -1,0 +1,23 @@
+@import '../../styles/mixins/mixins';
+
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.wrapper {
+  @include toCenter;
+  gap: 60px;
+}
+
+.link {
+  font-size: 20px;
+  line-height: 32px;
+  color: rgb(62, 112, 206);
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}

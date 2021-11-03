@@ -1,20 +1,17 @@
-import { Suspense, lazy, useState } from "react";
+import { FC,Suspense, lazy, useState } from "react";
 //routes
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 //components
 import NotFound from "../NotFound";
 import ErrorBoundary from "../ErrorBoundary";
 import PrivateRoute from "../PrivateRoute";
-import Authorization from "../../components/Authorization";
-//styles
-import "./MainContent.module.scss";
+import Authorization from "../Authorization";
 
 const Home = lazy(() => import("../Home"));
-const Calculating = lazy(() => import("../Calculating"));
+const Guarded = lazy(() => import("../Guarded"));
 
-const MainContent = () => {
+const MainContent: FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(isLoggedIn);
 
   return (
     <Router>
@@ -26,8 +23,8 @@ const MainContent = () => {
             </Route>
             <PrivateRoute
               exact
-              path="/calc"
-              component={Calculating}
+              path="/guard"
+              component={Guarded}
               condition={isLoggedIn}
             />
             <Route exact path="/auth">

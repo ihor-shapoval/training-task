@@ -2,21 +2,18 @@ import { useState } from "react";
 //constants
 import USER from "../../core/constants/constants";
 //styles
-import "./Authorization.module.scss";
+import styles from "./Authorization.module.scss";
 
 const Authorization = ({setIsLoggedIn}) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (login.trim() === USER.username && password.trim() === USER.password) {
       setIsLoggedIn(true);
-      setError(false);
     }
 
-    setError(true);
     setLogin("");
     setPassword("");
   };
@@ -26,23 +23,25 @@ const Authorization = ({setIsLoggedIn}) => {
 
   return (
     <>
-    <form method="POST" onSubmit={handleSubmit}>
-      <h1>LogIn</h1>
+    <h1>Please use test data: login: Chris; password: 111111</h1>
+    <form method="POST" onSubmit={handleSubmit} className={styles.form}>
+      <h2>LogIn</h2>
       <input
         type="text"
         value={login}
         placeholder="Enter your name"
         onChange={nameHandleChange}
+        className={styles.form__input}
       />
       <input
         type="password"
         value={password}
         placeholder="Password"
         onChange={passwordHandleChange}
+        className={styles.form__input}
       />
-          <button type="submit">LogIn</button>
+          <button type="submit" className={styles.form__submit}>LogIn</button>
     </form>
-    {error && 'Try again'}
     </>
   );
 };
